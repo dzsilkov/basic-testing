@@ -1,7 +1,7 @@
 // Uncomment the code below and write your tests
 import { generateLinkedList } from './index';
 
-const elements = [1, 2, 3, 4 ];
+const elements = [1, 2, 3, 4];
 const expectedResult = {
   value: 1,
   next: {
@@ -12,11 +12,11 @@ const expectedResult = {
         value: 4,
         next: {
           value: null,
-          next: null
-        }
-      }
-    }
-  }
+          next: null,
+        },
+      },
+    },
+  },
 };
 
 describe('generateLinkedList', () => {

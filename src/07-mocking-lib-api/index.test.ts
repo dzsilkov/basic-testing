@@ -32,9 +32,9 @@ describe('throttledGetDataFromApi', () => {
 
   test('should return response data', async () => {
     const users = [
-      {userId: 2, name: 'John'},
-      {userId: 3, name: 'Jane'},
-      {userId: 4, name: 'Bob'},
+      { userId: 2, name: 'John' },
+      { userId: 3, name: 'Jane' },
+      { userId: 4, name: 'Bob' },
     ];
     jest.spyOn(axios.Axios.prototype, 'get').mockResolvedValue({ data: users });
     const data = await throttledGetDataFromApi(path);

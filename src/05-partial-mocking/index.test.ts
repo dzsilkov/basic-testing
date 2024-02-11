@@ -2,7 +2,8 @@
 import { mockOne, mockTwo, mockThree, unmockedFunction } from './index';
 
 jest.mock('./index', () => {
-  const originalModule = jest.requireActual<typeof import('./index')>('./index');
+  const originalModule =
+    jest.requireActual<typeof import('./index')>('./index');
 
   return {
     __esModule: true,
@@ -37,5 +38,6 @@ describe('partial mocking', () => {
 
     unmockedFunction();
     expect(logSpy.mock.calls).toHaveLength(1);
+    expect(logSpy).toHaveBeenCalledWith('I am not mocked');
   });
 });

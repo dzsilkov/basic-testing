@@ -2,7 +2,7 @@
 import path from 'node:path';
 import fs from 'fs';
 import fsPromises from 'node:fs/promises';
-import {readFileAsynchronously, doStuffByTimeout, doStuffByInterval} from '.';
+import { readFileAsynchronously, doStuffByTimeout, doStuffByInterval } from '.';
 
 const timeout = 1000;
 const interval = 100;
@@ -87,7 +87,7 @@ describe('readFileAsynchronously', () => {
 
   test('should return null if file does not exist', async () => {
     jest.spyOn(fs, 'existsSync').mockReturnValueOnce(false);
-    const file = await readFileAsynchronously('pathToFile.txt')
+    const file = await readFileAsynchronously('pathToFile.txt');
 
     expect(file).toBeNull();
   });
@@ -95,7 +95,9 @@ describe('readFileAsynchronously', () => {
   test('should return file content if file exists', async () => {
     const fileContent = 'file content';
     jest.spyOn(fs, 'existsSync').mockReturnValueOnce(true);
-    jest.spyOn(fsPromises, 'readFile').mockResolvedValueOnce(Buffer.from(fileContent));
+    jest
+      .spyOn(fsPromises, 'readFile')
+      .mockResolvedValueOnce(Buffer.from(fileContent));
     const content = await readFileAsynchronously('pathToFile.txt');
 
     expect(content).toBe(fileContent);
